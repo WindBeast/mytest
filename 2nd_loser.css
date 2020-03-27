@@ -1,0 +1,28 @@
+.question-frame{
+    position: relative;
+    width: 90vw;
+    height: calc(90vw*6/5);
+    margin: 0 auto;
+    border:1px solid #000;
+    background-color:#fff;
+}
+
+.question-box{
+    position: absolute;
+    width:20%;
+    height:calc(200%/3);
+    color:#000;
+    font-size:40px;
+    text-align:center;
+    border:1px solid #000;
+    background-color:#fff;
+}
+
+.letter{
+    margin:0;
+    line-height: 100%;
+    position: absolute;
+    font-size: 18vw;
+    top:0;
+    left:0;
+}
