@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+    <TITLE>Image</TITLE>
+    <script src="https://code.jquery.com/jquery-git.js"></script>
+    <meta name="viewport" content="width=device-width">
+    <LINK REL="stylesheet" TYPE="text/css" HREF="2nd_loser.css">
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+</HEAD>
+<BODY>
+    <div class="question-frame">
+    <div class="drag-and-drop question-box" id="box1" style="top:calc(100%/6); left:20%;">？</div>
+    <div class="drag-and-drop question-box" id="box2" style="top:calc(100%/6); left:60%;">？</div>
+    <div class="letter" id="letter1"></div>
+    <div class="letter" id="letter2" style="top:calc(100%/6)"></div>
+    <div class="letter" id="letter3" style="top:calc(100%/6*2)"></div>
+    <div class="letter" id="letter4" style="top:calc(100%/6*3)"></div>
+    <div class="letter" id="letter5" style="top:calc(100%/6*4)"></div>
+    <div class="letter" id="letter6" style="top:calc(100%/6*5)"></div>
+    </div>
+    <script>
+(function(){
+
+//文字表示用の位置変数
+var pos_box1 = 1;
+var pos_box2 = 1;
+
+//要素の取得
+var elements = document.getElementsByClassName("drag-and-drop");
+
+//要素内のクリックされた位置を取得するグローバル（のような）変数
+var y;
+var pos_y;
+var grid = document.getElementById("box1").clientHeight /4;
+
+//マウスが要素内で押されたとき、又はタッチされたとき発火
+for(var i = 0; i < elements.length; i++) {
+    elements[i].addEventListener("touchstart", mdown, false);
+}
+
+//マウスが押された際の関数
+function mdown(e) {
+
+    //クラス名に .drag を追加
+    this.classList.add("drag");
+
+    document.getElementById("letter1").innerText = "";
+    document.getElementById("letter2").innerText = "";
+    document.getElementById("letter3").innerText = "";
+    document.getElementById("letter4").innerText = "";
+    document.getElementById("letter5").innerText = "";
+    document.getElementById("letter6").innerText = "";
+
+    //タッチデイベントとマウスのイベントの差異を吸収
+    var event = e.changedTouches[0];
+
+    //要素内の相対座標を取得
+    y = event.pageY - this.offsetTop;
+
+    //ムーブイベントにコールバック
+    document.body.addEventListener("touchmove", mmove, false);
+}
+
+//マウスカーソルが動いたときに発火
+function mmove(e) {
+
+    //ドラッグしている要素を取得
+    var drag = document.getElementsByClassName("drag")[0];
+
+    //同様にマウスとタッチの差異を吸収
+    var event = e.changedTouches[0];
+
+    //フリックしたときに画面を動かさないようにデフォルト動作を抑制
+    e.preventDefault();
+
+    //マウスが動いた場所に要素を動かす
+    pos_y = event.pageY - y;
+    if (pos_y < 0) {
+        pos_y = 0;
+    } else if (pos_y > grid * 2) {
+        pos_y = grid * 2;
+    }
+    drag.style.top = pos_y + "px";
+
+    //マウスボタンが離されたとき、またはカーソルが外れたとき発火
+    drag.addEventListener("touchend", mup, false);
+    document.body.addEventListener("touchleave", mup, false);
+
+}
+
+//マウスボタンが上がったら発火
+function mup(e) {
+    var drag = document.getElementsByClassName("drag")[0];
+
+    for(var i = 0; i < 3; i++) {
+        if (grid * (i-0.5) <= pos_y && pos_y < grid * (i+0.5)) {
+            drag.style.top = grid * i +"px";
+            if (drag.getAttribute('id') == "box1") {
+                pos_box1 = i;
+            } else {
+                pos_box2 = i;
+            }
+        }
+    }
+
+    switch(pos_box1*10+pos_box2) {
+        case 01:
+            document.getElementById("letter2").innerText = "フ　ン　ゴ";
+            document.getElementById("letter3").innerText = "ダ　キ　イ";
+            document.getElementById("letter4").innerText = "ア　バ　ス";
+            break;
+
+        case 02:
+            document.getElementById("letter3").innerText = "ア　マ　ク";
+            document.getElementById("letter4").innerText = "マ　ガ　ス";
+            break;
+
+        case 10:
+            document.getElementById("letter2").innerText = "レ　ト　ン";
+            document.getElementById("letter3").innerText = "パ　ダ　ス";
+            document.getElementById("letter4").innerText = "ア　キ　ウ";
+            break;
+
+        case 12:
+            document.getElementById("letter3").innerText = "フ　ン　ゴ";
+            document.getElementById("letter4").innerText = "ダ　キ　イ";
+            document.getElementById("letter5").innerText = "ア　バ　ス";
+            break;
+
+        case 20:
+            document.getElementById("letter3").innerText = "ロ　タ　ム";
+            document.getElementById("letter4").innerText = "シ　ハ　リ";
+            break;
+
+        case 21:
+            document.getElementById("letter3").innerText = "レ　ト　ン";
+            document.getElementById("letter4").innerText = "パ　ダ　ス";
+            document.getElementById("letter5").innerText = "ア　キ　ウ";
+            break;
+    }
+
+    //ムーブベントハンドラの消去
+    document.body.removeEventListener("touchmove", mmove, false);
+    drag.removeEventListener("touchend", mup, false);
+
+    //クラス名 .drag も消す
+    drag.classList.remove("drag");
+}
+
+})()
+    </script>
+
+</BODY>
+</HTML>
