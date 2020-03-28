@@ -6,9 +6,18 @@
     z-index: 1001;
 }
 
+html {
+    height:100%;
+    background-color: black;
+}
+
 body {
     text-align: center;
-    font-size: 200%;
+}
+
+body p {
+    color:white;
+    font-size: 7vw;
 }
 
 .question-frame{
