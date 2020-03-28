@@ -29,12 +29,14 @@ function mdown(e) {
     //クラス名に .drag を追加
     this.classList.add("drag");
     
-        letter1.classList.remove("show");
-        letter2.classList.remove("show");
-        letter3.classList.remove("show");
-        letter4.classList.remove("show");
-        letter5.classList.remove("show");
-        letter6.classList.remove("show");
+    this.classList.remove("smooth");
+    
+    letter1.classList.remove("show");
+    letter2.classList.remove("show");
+    letter3.classList.remove("show");
+    letter4.classList.remove("show");
+    letter5.classList.remove("show");
+    letter6.classList.remove("show");
 
     //タッチデイベントとマウスのイベントの差異を吸収
     var event = e.changedTouches[0];
@@ -76,6 +78,8 @@ function mmove(e) {
 //指を離したときの関数
 function mup(e) {
     var drag = document.getElementsByClassName("drag")[0];
+    
+    drag.classList.add("smooth");
 
     for(var i = 0; i < 3; i++) {
         if (grid * (i-0.5) <= pos_y && pos_y < grid * (i+0.5)) {
