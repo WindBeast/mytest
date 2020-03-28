@@ -6,6 +6,12 @@ var pos_box2 = 1;
 
 //要素の取得
 var elements = document.getElementsByClassName("drag-and-drop");
+    var letter1 = document.getElementById("letter1") ;
+    var letter2 = document.getElementById("letter2") ;
+    var letter3 = document.getElementById("letter3") ;
+    var letter4 = document.getElementById("letter4") ;
+    var letter5 = document.getElementById("letter5") ;
+    var letter6 = document.getElementById("letter6") ;
 
 //要素内のタッチされた位置を取得する変数
 var y;
@@ -22,13 +28,13 @@ function mdown(e) {
 
     //クラス名に .drag を追加
     this.classList.add("drag");
-
-    document.getElementById("letter1").innerText = "";
-    document.getElementById("letter2").innerText = "";
-    document.getElementById("letter3").innerText = "";
-    document.getElementById("letter4").innerText = "";
-    document.getElementById("letter5").innerText = "";
-    document.getElementById("letter6").innerText = "";
+    
+        letter1.classList.remove("show");
+        letter2.classList.remove("show");
+        letter3.classList.remove("show");
+        letter4.classList.remove("show");
+        letter5.classList.remove("show");
+        letter6.classList.remove("show");
 
     //タッチデイベントとマウスのイベントの差異を吸収
     var event = e.changedTouches[0];
@@ -82,41 +88,64 @@ function mup(e) {
         }
     }
 
-    switch(pos_box1*10+pos_box2) {
-        case 01:
-            document.getElementById("letter2").innerText = "フ　ン　ゴ";
-            document.getElementById("letter3").innerText = "ダ　キ　イ";
-            document.getElementById("letter4").innerText = "ア　バ　ス";
-            break;
+        switch(pos_box1*10+pos_box2) {
+            case 01:
+                letter2.innerText = "フ　ン　ゴ";
+                letter3.innerText = "ダ　キ　イ";
+                letter4.innerText = "ア　バ　ス";
+                letter5.innerText = "";
+                break;
 
-        case 02:
-            document.getElementById("letter3").innerText = "ア　マ　ク";
-            document.getElementById("letter4").innerText = "マ　ガ　ス";
-            break;
+            case 02:
+                letter2.innerText = "";
+                letter3.innerText = "ア　マ　ク";
+                letter4.innerText = "マ　ガ　ス";
+                letter5.innerText = "";
+                break;
 
-        case 10:
-            document.getElementById("letter2").innerText = "レ　ト　ン";
-            document.getElementById("letter3").innerText = "パ　ダ　ス";
-            document.getElementById("letter4").innerText = "ア　キ　ウ";
-            break;
+            case 10:
+                letter2.innerText = "レ　ト　ン";
+                letter3.innerText = "パ　ダ　ス";
+                letter4.innerText = "ア　キ　ウ";
+                letter5.innerText = "";
+                break;
 
-        case 12:
-            document.getElementById("letter3").innerText = "フ　ン　ゴ";
-            document.getElementById("letter4").innerText = "ダ　キ　イ";
-            document.getElementById("letter5").innerText = "ア　バ　ス";
-            break;
+            case 12:
+                letter2.innerText = "";
+                letter3.innerText = "フ　ン　ゴ";
+                letter4.innerText = "ダ　キ　イ";
+                letter5.innerText = "ア　バ　ス";
+                break;
 
-        case 20:
-            document.getElementById("letter3").innerText = "ロ　タ　ム";
-            document.getElementById("letter4").innerText = "シ　ハ　リ";
-            break;
+            case 20:
+                letter2.innerText = "";
+                letter3.innerText = "ロ　タ　ム";
+                letter4.innerText = "シ　ハ　リ";
+                letter5.innerText = "";
+                break;
 
-        case 21:
-            document.getElementById("letter3").innerText = "レ　ト　ン";
-            document.getElementById("letter4").innerText = "パ　ダ　ス";
-            document.getElementById("letter5").innerText = "ア　キ　ウ";
-            break;
-    }
+            case 21:
+                letter2.innerText = "";
+                letter3.innerText = "レ　ト　ン";
+                letter4.innerText = "パ　ダ　ス";
+                letter5.innerText = "ア　キ　ウ";
+                break;
+
+            default:
+                letter2.innerText = "";
+                letter3.innerText = "";
+                letter4.innerText = "";
+                letter5.innerText = "";
+                break;
+        }
+
+        letter1.classList.add("show");
+        letter2.classList.add("show");
+        letter3.classList.add("show");
+        letter4.classList.add("show");
+        letter5.classList.add("show");
+        letter6.classList.add("show");
+
 
     //ムーブベントハンドラの消去
     document.body.removeEventListener("touchmove", mmove, false);
