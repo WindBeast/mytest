@@ -34,4 +34,10 @@
     font-size: 18vw;
     top:0;
     left:0;
+    opacity: 0;
+    transition-duration: 0.5s;
+}
+
+.letter.show{
+    opacity: 1;
 }
