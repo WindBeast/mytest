@@ -26,7 +26,6 @@ body p {
     width: 90vw;
     height: calc(90vw*6/5);
     margin: 0 auto;
-    border:1px solid #000;
     background-color:#fff;
 }
 
@@ -35,7 +34,6 @@ body p {
     width: 90vw;
     height: calc(90vw*7/5);
     margin: 0 auto;
-    border:1px solid #000;
     background-color:#fff;
 }
 
