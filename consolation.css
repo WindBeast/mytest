@@ -9,6 +9,7 @@
 html {
     height:100%;
     background-color: black;
+    -webkit-text-size-adjust: ('none' '100%' 'auto');
 }
 
 body {
