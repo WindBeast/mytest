@@ -89,7 +89,7 @@
         //boxの位置によって文字を変化
         switch(pos_box1*10+pos_box2) {
             case 00:
-                letter.innerText = "ジ　ド　ア";
+                letter.innerText = "ジ　ウ　ア";
                 break;
 
             case 01:
@@ -141,7 +141,7 @@
                 break;
 
             case 31:
-                letter.innerText = "バ　イ　ド";
+                letter.innerText = "バ　ガ　ド";
                 break;
 
             case 32:
