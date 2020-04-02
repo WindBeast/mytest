@@ -19,12 +19,12 @@
 html {
     height:100%;
     background-color: black;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
     text-align: center;
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
 }
 
 body p {
