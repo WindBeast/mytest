@@ -1,8 +1,8 @@
 (function(){
 
     //文字表示用の位置管理変数
-    var pos_box1 = 1;
-    var pos_box2 = 1;
+    var pos_box1 = 0;
+    var pos_box2 = 0;
 
     //要素の取得
     var elements = document.getElementsByClassName("drag-and-drop");
