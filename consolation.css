@@ -18,12 +18,22 @@ body {
 body p {
     color:white;
     font-size: 7vw;
+    line-height: 100%;
 }
 
 .question-frame{
     position: relative;
     width: 90vw;
     height: calc(90vw*6/5);
+    margin: 0 auto;
+    border:1px solid #000;
+    background-color:#fff;
+}
+
+.q-frame-2{
+    position: relative;
+    width: 90vw;
+    height: calc(90vw*7/5);
     margin: 0 auto;
     border:1px solid #000;
     background-color:#fff;
@@ -41,7 +51,21 @@ body p {
     background-color:#fff;
 }
 
-.question-box.smooth {
+.qimg{
+    position: absolute;
+    width:20%;
+    height:calc(400%/7);
+}
+
+.qimgtrim{
+    position: absolute;
+    width:20%;
+    height:calc(100%/7);
+    object-fit: cover;
+    object-position: 0 0;
+}
+
+.smooth {
     transition: 0.5s;
 }
 
@@ -58,4 +82,12 @@ body p {
 
 .letter.show{
     opacity: 1;
+}
+
+.hidebox{
+    position: absolute;
+    z-index: 1002;
+    background-color: white;
+    width: 100%;
+    height: calc(300%/7);
 }
