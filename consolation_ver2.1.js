@@ -1,4 +1,10 @@
-(function(){
+$(function(){
+    //画像のプリロード
+    for(var i = 0; i < 4; i++) {
+        for(var j = 0; j < 4; j++) {
+            $("<img>").attr("src","text/text" + (i*10+j) + ".png");
+        }
+    }
 
     //文字表示用の位置管理変数
     var pos_box1 = 0;
@@ -100,4 +106,4 @@
         drag.classList.remove("drag");
     }
 
-    })()
+    });
