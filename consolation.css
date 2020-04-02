@@ -3,6 +3,11 @@
     user-zoom: fixed;
 }
 
+@-o-viewport {
+    width: device-width;
+    user-zoom: fixed;
+}
+
 .drag-and-drop{
     z-index:1000;
 }
