@@ -3,10 +3,6 @@
     user-zoom: fixed;
 }
 
-html {
-    height: 100vh;
-}
-
 body {
     text-align: center;
     -webkit-text-size-adjust: none;
