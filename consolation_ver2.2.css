@@ -1,0 +1,129 @@
+@viewport {
+    width: device-width;
+    user-zoom: fixed;
+}
+
+html {
+    height: 100vh;
+}
+
+body {
+    text-align: center;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    height: 100%;
+}
+
+body {
+    background-image: url(background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right top;
+}
+
+body p {
+    color:white;
+    font-size: 7vw;
+    line-height: 100%;
+}
+
+.drag-and-drop{
+    z-index:1003;
+}
+
+.drag {
+    z-index: 1004;
+}
+
+.q-frame-2{
+    position: relative;
+    width: 80vw;
+    height: 60vw;
+    margin: 0 auto;
+    background-color:#fff;
+}
+
+.qimg{
+    position: absolute;
+    width:20%;
+    height:calc(400%/7);
+}
+
+.qimgtrim{
+    position: absolute;
+    width:20%;
+    height:calc(100%/7);
+    object-fit: cover;
+    object-position: 0 0;
+}
+
+.smooth {
+    transition: 0.5s;
+}
+
+.letter{
+    margin:0;
+    line-height: 100%;
+    position: absolute;
+    font-size: 18vw;
+    top:0;
+    left:0;
+    opacity: 0;
+    transition-duration: 0.2s;
+    font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "メイリオ", Meiryo, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "ＭＳ Ｐゴシック", sans-serif;
+}
+
+.hidebox{
+    position: absolute;
+    z-index: 1005;
+    background-color: white;
+    width: 100%;
+    height: calc(300%/7);
+}
+
+.letterimg {
+    position: absolute;
+    width: 100%;
+    top:0;
+    left:0;
+    opacity: 0;
+    transition-duration: 0.2s;
+    z-index: 1002;
+}
+
+div.answer-frame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "UD Digi Kyokasho NK-R";
+}
+
+div.answer-frame input[type="text"]{
+    height: 9vw;
+    width: 40vw;
+    font-size: calc(33vw/5);
+    text-align: center;
+    color: black;
+    background-color: white;
+    padding: 0;
+    border: 0;
+    font-family: "UD Digi Kyokasho NK-R";
+}
+
+div.answer-frame input[type="button"]{
+    height: 10vw;
+    width: 28vw;
+    font-size: 6vw;
+    text-align: center;
+    color: #3f8cFF;
+    border-radius: 1vw;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "UD Digi Kyokasho NK-R";
+}
+
+.show{
+    opacity: 1;
+}
