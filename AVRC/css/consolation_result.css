@@ -1,0 +1,30 @@
+@viewport {
+    width: device-width;
+    user-zoom: fixed;
+}
+
+body {
+    text-align: center;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    height: 100%;
+}
+
+body {
+    background-image: url(../pic/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right top;
+}
+
+div.result {
+    font-size: 25vw;
+    color: white;
+    font-family: "UD Digi Kyokasho NK-R";
+    height: 40vh;
+    width: 100vw;
+    position: absolute;
+    top: 30vh;
+    margin:auto;
+    line-height: 40vh;
+}
