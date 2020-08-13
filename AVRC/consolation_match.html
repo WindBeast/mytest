@@ -10,12 +10,10 @@
 </HEAD>
 <BODY>
     <img src="pic/3rd_stage.png" class="title">
-    <div class="main">
-        <div class="hidebox" style="top:0"></div>
-        <div class="hidebox" style="top:calc(100%/7*4);"></div>
-        <img src="pic/qbox.png" class="drag-and-drop qimg" id="box1" style="top:calc(100%/7*0); left:20%;">
-        <img src="pic/qbox.png" class="drag-and-drop qimg" id="box2" style="top:calc(100%/7*0); left:60%;">
-        <img src="pic/text/text0.png" class="letterimg show" id="letter" style="top:calc(100%/7*3)">
+    <div class="main" id="main">
+        <img src="pic/qbox.png" class="drag-and-drop qimg qtrim" id="box1" style="object-position: 0 0; left:20%;">
+        <img src="pic/qbox.png" class="drag-and-drop qimg" id="box2" style="object-position: 0 0; left:60%;">
+        <img src="pic/text/text0.png" class="letterimg show" id="letter">
     </div>
     <div class="answer-frame"  style="margin-top: 50px;">
         <input type="text" id="form" placeholder="カタカナで入力"><input type="button" id="button" value="解答" style="margin-left: 2vw;">
@@ -37,12 +35,12 @@
 
         //要素の取得
         var elements = document.getElementsByClassName("drag-and-drop");
-        var letter = document.getElementById("letter") ;
+        var letter = document.getElementById("letter");
 
         //要素内のクリックされた位置を取得する変数
         var y;
         var pos_y;
-        var grid = document.getElementById("box1").clientHeight /4;
+        var grid = document.getElementById("box1").clientHeight;
 
         //要素内がタップされたときに発火
         for(var i = 0; i < elements.length; i++) {
@@ -63,7 +61,7 @@
             var event = e.changedTouches[0];
 
             //要素内の相対座標を取得
-            y = event.pageY - this.offsetTop;
+            y = event.pageY;
 
             //ムーブイベントにコールバック
             document.body.addEventListener("touchmove", mmove, {passive:false});
@@ -87,12 +85,17 @@
 
             //指が動いた場所に要素を動かす
             pos_y = event.pageY - y;
-            if (pos_y < 0) {
-                pos_y = 0;
-            } else if (pos_y > grid * 3) {
-                pos_y = grid * 3;
+            if (drag.getAttribute('id') == "box1") {
+                pos_y += pos_box1 * (-grid);
+            } else {
+                pos_y += pos_box2 * (-grid);
             }
-            drag.style.top = pos_y + "px";
+            if (pos_y > 0) {
+                pos_y = 0;
+            } else if (pos_y < -grid*3) {
+                pos_y = -grid*3;
+            }
+            drag.style.objectPosition = "0 " + pos_y + "px";
 
             //指が離れたら発火
             drag.addEventListener("touchend", mup, false);
@@ -103,12 +106,11 @@
         //指が離れた時の関数
         function mup(e) {
             var drag = document.getElementsByClassName("drag")[0];
-
             drag.classList.add("smooth");
 
             for(var i = 0; i < 4; i++) {
-                if (grid * (i-0.5) <= pos_y && pos_y < grid * (i+0.5)) {
-                    drag.style.top = grid * i +"px";
+                if (-grid * (i+0.5) <= pos_y && pos_y < -grid * (i-0.5)) {
+                    drag.style.objectPosition = "0 " + -grid * i +"px";
                     if (drag.getAttribute('id') == "box1") {
                         pos_box1 = i;
                     } else {

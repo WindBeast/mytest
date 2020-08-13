@@ -45,15 +45,9 @@ body {
 .qimg {
     position: absolute;
     width:20%;
-    height:calc(400%/7);
-}
-
-.qimgtrim {
-    position: absolute;
-    width:20%;
-    height:calc(100%/7);
+    height: calc(80%/3);
     object-fit: cover;
-    object-position: 0 0;
+    top: 22vw;
 }
 
 .smooth {
@@ -83,7 +77,7 @@ body {
 .letterimg {
     position: absolute;
     width: 100%;
-    top:0;
+    top: 22vw;
     left:0;
     opacity: 0;
     transition-duration: 0.2s;
