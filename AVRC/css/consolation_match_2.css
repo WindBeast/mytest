@@ -3,6 +3,10 @@
     user-zoom: fixed;
 }
 
+img {
+    -webkit-touch-callout:none;
+}
+
 body {
     text-align: center;
     -webkit-text-size-adjust: none;
