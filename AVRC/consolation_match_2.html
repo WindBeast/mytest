@@ -208,25 +208,6 @@
                 setting[id]['sending'] = false;
             }
         }
-        $( document ).ready( function()
-        {
-        var interval = 600;
-
-        $( "img" ).bind( "touchstart", function()
-        {
-        timer = setTimeout( function()
-        {
-        alert( "画像の保存はできません" );
-        }, interval );
-
-        function clearFunction()
-        {
-        clearTimeout( timer );
-        }
-
-        $( "img" ).bind( "touchend touchmove touchcancel", clearFunction );
-        });
-        });
     </script>
 </BODY>
 </HTML>
