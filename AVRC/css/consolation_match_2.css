@@ -18,11 +18,21 @@ body {
     height: 100%;
 }
 
-body {
+body { /*画像保存禁止のテスト1(多分失敗)*/
     background-image: url(../pic/background.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right top;
+}
+
+body { /*画像保存禁止のテスト2*/
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    user-select:none;
+    -moz-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-drag:none;
+    -khtml-user-drag:none;
 }
 
 .title {
