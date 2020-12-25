@@ -18,14 +18,14 @@ body {
     height: 100%;
 }
 
-body { /*画像保存禁止のテスト1(多分失敗)*/
+body {
     background-image: url(../pic/background.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right top;
 }
 
-body { /*画像保存禁止のテスト2*/
+body { /*画像保存禁止のテスト あまりうまくいってない(iosではできるかもしれない)*/
     -webkit-touch-callout:none;
     -webkit-user-select:none;
     user-select:none;
