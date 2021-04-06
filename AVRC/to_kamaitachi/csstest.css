@@ -1,0 +1,35 @@
+div.red {
+    position: absolute;
+    background-color: red;
+    width: 80vw;
+    height: 80vw;
+    top: 10vw;
+    left: 10vw;
+}
+
+div.blue {
+    position: absolute;
+    background-color: blue;
+    width: 60vw;
+    height: 60vw;
+    top: 10vw;
+    left: 10vw;
+}
+
+div.yellow {
+    position: fixed;
+    background-color: yellow;
+    width: 40vw;
+    height: 40vw;
+    top: 10vw;
+    left: 10vw;
+}
+
+div.green {
+    position: fixed;
+    background-color: green;
+    width: 20vw;
+    height: 20vw;
+    top: 10vw;
+    left: 10vw;
+}
